@@ -32,8 +32,10 @@ class LoginViewModel(private val loginRepository: LoginRepository) : ViewModel()
     fun loginDataChanged(username: String, password: String) {
         if (!isUserNameValid(username)) {
             _loginForm.value = LoginFormState(usernameError = R.string.invalid_username)
-        } else if (!isPasswordValid(password)) {
-            _loginForm.value = LoginFormState(passwordError = R.string.invalid_password)
+        } else if (!isPasswordValidLength(password)) {
+            _loginForm.value = LoginFormState(passwordError = R.string.invalid_password_length)
+        } else if (!isPasswordValidComplexity(password)){
+            _loginForm.value = LoginFormState(passwordError = R.string.invalid_password_complexity)
         } else {
             _loginForm.value = LoginFormState(isDataValid = true)
         }
@@ -48,7 +50,12 @@ class LoginViewModel(private val loginRepository: LoginRepository) : ViewModel()
     }
 
     // A placeholder password validation check
-    private fun isPasswordValid(password: String): Boolean {
+    private fun isPasswordValidLength(password: String): Boolean {
         return password.length > 8
+    }
+
+    private fun isPasswordValidComplexity(password: String): Boolean {
+        val regex = Regex("[!@#\$%^&*()_+\\-=\\[\\]{};':\",.<>?]+")
+        return password.contains(regex)
     }
 }

@@ -21,9 +21,11 @@ import android.view.inputmethod.EditorInfo
 import android.widget.EditText
 import android.widget.Toast
 import com.tc.login_task.DashboardActivity
+import com.tc.login_task.NavDrawerActivity
 import com.tc.login_task.databinding.ActivityLoginScreenBinding
 
 import com.tc.login_task.R
+import com.tc.login_task.ui.home.HomeFragment
 
 class LoginScreen : AppCompatActivity() {
 
@@ -69,7 +71,7 @@ class LoginScreen : AppCompatActivity() {
 
             runOnUiThread {
                 //Complete login and navigate to Dashboard
-                val intent = Intent(this, DashboardActivity::class.java)
+                val intent = Intent(this, NavDrawerActivity::class.java)
                 //Pass login data to Dashboard
                 intent.putExtra("username", username.text.toString())
                 // Add flags to clear the back stack

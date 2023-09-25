@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.tc.login_task.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_nav_home_to_nav_camera"
+            app:destination="@id/nav_camera" />
+    </fragment>
+
+        <action
+            android:id="@+id/action_login_to_home"
+            app:destination="@id/nav_home" />
+
+    <fragment
+        android:id="@+id/nav_gallery"
+        android:name="com.tc.login_task.ui.gallery.GalleryFragment"
+        android:label="@string/menu_gallery"
+        tools:layout="@layout/fragment_gallery" />
+
+    <fragment
+        android:id="@+id/nav_slideshow"
+        android:name="com.tc.login_task.ui.slideshow.SlideshowFragment"
+        android:label="@string/menu_slideshow"
+        tools:layout="@layout/fragment_slideshow" />
+    <fragment
+        android:id="@+id/nav_camera"
+        android:name="com.tc.login_task.ui.camera.CameraFragment"
+        android:label="@string/menu_camera"
+        tools:layout="@layout/fragment_camera" />
+    <fragment
+        android:id="@+id/nav_phone"
+        android:name="com.tc.login_task.ui.phone.PhoneFragment"
+        android:label="@string/menu_phone"
+        tools:layout="@layout/fragment_phone" />
+    <fragment
+        android:id="@+id/nav_watch"
+        android:name="com.tc.login_task.ui.watch.WatchFragment"
+        android:label="@string/menu_watch"
+        tools:layout="@layout/fragment_watch" />
+</navigation>
